@@ -167,7 +167,7 @@ print(CM)
 ```
 
 
-### COMPAS
+### COMPAS <- Me
 
 In the US, judges, probation officers, and parole officers use algorithms to evaluate the likelihood of a criminal defendant re-offending, a concept commonly referred to as recidivism. Numerous risk assessment algorithms are circulating with two prominent nationwide tools provided by commercial vendors.
 
@@ -325,7 +325,7 @@ Choose one of the data described above as your target problem.
 ~~~
 Please write your answer in full sentences.
 
-
+Compas
 ~~~
 
 Discuss what a favorable label in this problem is and what does a favorable label grant the affected user?
@@ -334,6 +334,7 @@ Is it assertive or non-punitive?
 ~~~
 Please write your answer in full sentences.
 
+low-risk label    assertive
 
 ~~~
 
@@ -342,7 +343,7 @@ What type of justice is this issue about?
 ~~~
 Please write your answer in full sentences.
 
-
+procedural justice
 ~~~
 
 Discuss the potential concerns about the data being used. 
@@ -350,6 +351,7 @@ Discuss the potential concerns about the data being used.
 ~~~
 Please write your answer in full sentences.
 
+self-perpetuating nature of the model, lack of experimentation
 
 ~~~
 
@@ -358,14 +360,24 @@ Discuss what type of group fairness metrics is appropriate for this problem.
 ~~~
 Please write your answer in full sentences.
 
+Proportional parity
 
 ~~~
 
 Using the appropriate fairness metrics, show if there are concerns in the prediction algorithm.
 
 ```{r}
-#
-#
+
+
+Compas_acc <- acc_parity(data         = compas_df, 
+                         outcome      = 'BAD', 
+                         outcome_base = 'BAD', 
+                         group        = 'race',
+                         probs        = 0.5, 
+                         cutoff       = 0.5, 
+                         base         = '(0,25]')
+Compas$Metric
+Compas_acc$Metric_plot
 ```
 
 ~~~
@@ -377,7 +389,6 @@ Please write your answer in full sentences.
 Given that you have access to the original data, but not to the model used to make the prediction, discuss which mitigation strategy might be more appropriate to deal with the problem, if any.
 
 ```{r}
-#
 #
 ```
 
